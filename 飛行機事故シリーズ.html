@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>飛行機事故シリーズ.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E9%A3%9B%E8%A1%8C%E6%A9%9F%E4%BA%8B%E6%95%85%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA">飛行機事故シリーズ</h1>
+<ul>
+<li>同時多発テロ AA 11, United 174</li>
+<li>Pan Am 1736/KLM 4805</li>
+<li>JAL 123</li>
+<li>Saudi Aravian 763/Kazakhstan 1907<pre class="hljs"><code><div>Status:	Final
+Date:	Tuesday 12 November 1996
+Time:	18:40
+Type:	Silhouette image of generic IL76 model; specific model in this crash may look slightly different
+Ilyushin Il-76TD
+Operator:	Kazakhstan Airlines
+Registration:	UN-76435
+C/n / msn:	1023413428
+First flight:	1992
+Total airframe hrs:	2643
+Crew:	Fatalities: 10 / Occupants: 10
+Passengers:	Fatalities: 27 / Occupants: 27
+Total:	Fatalities: 37 / Occupants: 37
+Collision casualties:	Fatalities: 312
+Aircraft damage:	Destroyed
+Aircraft fate:	Written off (damaged beyond repair)
+Location:	5 km (3.1 mls) from Charkhi Dadri (   India)
+Phase:	En route (ENR)
+Nature:	Cargo
+Departure airport:	Shymkent Airport (CIT/UAII), Kazakhstan
+Destination airport:	Delhi-Indira Gandhi International Airport (DEL/VIDP), India
+Flightnumber:	1907
+Narrative:
+Air Kazakhstan Flight 1907, an Ilyushin 76 departed Shymkent (aka Chimkent), Kazakhastan for a flight to Delhi. While descending on Airway G452 the crew contacted Delhi: &quot;Good evening 1907. Passing through 230 for 180, 74 miles from DPN [the Delhi Airport beacon]&quot;. The controller then cleared the flight to descend to and report at FL150. In the meantime, a Saudi Arabian Airlines Boeing 747 had departed Delhi at 18:32 for a passenger flight to Dhahran. Flight SV763 followed the Parvi SID and reported approaching FL100. The Delhi controller cleared the flight, which was also on Airway G452, to climb to FL140. Because Flight 1907 was approaching from the opposite side, the controller told SV763: &quot;Maintain level 140, Standby for higher.&quot; A little later, Flight 1907 reported reaching FL150 at 46 miles from the airport. The controller then responded: &quot;Roger. Maintain 150. Identified traffic 12 o'clock, reciprocal Saudia Boeing 747, 14 miles. Report in sight.&quot; The Kazakhstan crew replied by querying the distance to which the controller answered: &quot;Fourteen miles now, roger 1907.&quot; When no reply followed he again warned: &quot;Traffic in 13 miles, level 140.&quot;
+Apparently the Kazakh aircraft had descended below its assigned altitude and was flying at 14500 feet. A few seconds later seconds later the Ilyushin had descended another 310 feet. Shortly afterwards both aircraft collided, plummeted down in flames and crashed in an arid farming area.
+Probable Cause:
+
+PROBABLE CAUSE: &quot;The root and approximate cause of the collision was the unauthorised descending by the Kazak aircraft to FL-140 and failure to maintain the assigned FL-150&quot;.
+</div></code></pre>
+</li>
+<li>Turkish 981<pre class="hljs"><code><div>Status:	Final
+Date:	Sunday 3 March 1974
+Time:	12:42
+Type:	Silhouette image of generic DC10 model; specific model in this crash may look slightly different
+McDonnell Douglas DC-10-10
+Operator:	Türk Hava Yollari - THY
+Registration:	TC-JAV
+C/n / msn:	46704/29
+First flight:	1972
+Total airframe hrs:	2955
+Cycles:	1537
+Engines:	3 General Electric CF6-6D
+Crew:	Fatalities: 11 / Occupants: 11
+Passengers:	Fatalities: 335 / Occupants: 335
+Total:	Fatalities: 346 / Occupants: 346
+Aircraft damage:	Destroyed
+Aircraft fate:	Written off (damaged beyond repair)
+Location:	Bois d'Ermenonville (   France)
+Phase:	En route (ENR)
+Nature:	International Scheduled Passenger
+Departure airport:	Paris-Orly Airport (ORY/LFPO), France
+Destination airport:	London-Heathrow Airport (LHR/EGLL), United Kingdom
+Flightnumber:	TK981
+Narrative:
+On Sunday March 3, 1974 flight TK981 departed Istanbul for a flight to Paris and London. The DC-10 landed at Paris-Orly at 11:02 and taxied to stand A2. There were 167 passengers on board, of whom 50 disembarked. The aircraft was refueled and baggage was loaded onto the plane. The planned turnaround time of one hour was delayed by 30 minutes. An additional 216 passengers embarked. Most of the passengers were booked on this flight because of a strike at British Airways. The door of the aft cargo compartment on the left-hand side was closed at about 11:35. When all preparations were complete the flight received permission to taxi to runway 08 at 12:24. Four minutes later the crew were cleared to line up for departure and were cleared for departure route 181 and an initial climb to flight level 40. The aircraft took off at approximately 12:30 and was cleared by Orly Departure to climb to FL60, which was reached at 12:34. The North Area Control Centre then cleared TK981 further to FL230. Three or four seconds before 12:40:00 hours, the noise of decompression was heard and the co-pilot said: &quot;the fuselage has burst&quot; and the pressurization aural warning sounded. This was caused by the opening and separation of the aft left-hand cargo door. The pressure difference in the cargo bay and passenger cabin, the floor above the cargo door partly collapsed. Two occupied tripe seat units were ejected from the aircraft. All the horizontal stabilizer and elevator control cables routed beneath the floor of the DC-10 and were thus also severely disrupted. Also the no. 2 engine power was lost almost completely. The aircraft turned 9 deg to the left and pitched nose down. The nose-down attitude increased rapidly to -20 deg. Although the no. 1 and 3 engines were throttled back the speed increased to 360 kts. The pitch attitude then progressively increased to -4 degrees and the speed became steady at 430 kts (800 km/h). At a left bank of 17 degrees the DC-10 crashed into the forest of Ermenonville, 37 km NE of Paris.
+Probable Cause:
+
+PROBABLE CAUSE: &quot;The accident was the result of the ejection in flight of the aft cargo door on the left-hand side: the sudden depressurization which followed led to the disruption of the floor structure, causing six passengers and parts of the aircraft to be ejected, rendering No.2 engine inoperative and impairing the flight controls (tail surfaces) so that it was impossible for the crew to regain control of the aircraft.
+The underlying factor in the sequence of events leading to the accident was the incorrect engagement of the door latching mechanism before take-off. The characteristics of the design of the mechanism made it possible for the vent door to be apparently closed and the cargo door apparently locked when in fact the latches were not fully closed and the lock pins were not in place.
+It should be noted, however that a view port was provided so that there could be a visual check of the engagement of the lock pins.
+This defective closing of the door resulted from a combination of various factors:
+- incomplete application of Service Bulletin 52-37;
+- incorrect modifications and adjustments which led, in particular, to insufficient protrusion of the lock pins and to the switching off of the flight deck visual warning light before the door was locked;
+- the circumstances of the closure of the door during the stop at Orly, and, in particular, the absence of any visual inspection, through the viewport to verify that the lock pins were effectively engaged, although at the time of the accident inspection was rendered difficult by the inadequate diameter of the view port.
+
+Finally, although there was apparent redundancy of the flight control systems, the fact that the pressure relief vents between the cargo compartment and the passenger cabin were inadequate and that all the flight control cables were routed beneath the floor placed the aircraft in grave danger in the case of any sudden depressurization causing substantial damage to that part of the structure.
+
+All these risks had already become evident, nineteen months earlier, at the time of the Windsor accident, but no efficacious corrective action had followed.&quot; (Aircraft Accident Report 8/76)
+</div></code></pre>
+</li>
+<li>Air India 182</li>
+<li>Saudi Aravian 163</li>
+<li>Malaysia 17</li>
+<li>Iran 655</li>
+<li>Iranian Air Force 15-2280</li>
+</ul>
+
+</body>
+</html>
